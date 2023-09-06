@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Pages xmlns="http://chameleon.ibs-qa.ru/schema/web-elements">
+    <Page name="Товары">
+        <Button name="Добавить" locator="//button[@data-toggle='modal']"/>
+        <StaticText name="Таблица" locator="//table[@class='table']"/>
+        <Collection name="Строки таблицы" locator="//table/tbody/tr">
+            <StaticText name="Столбец Наименование" locator="./td[1]"/>
+            <StaticText name="Столбец Тип" locator="./td[2]"/>
+            <StaticText name="Столбец Экзотический" locator="./td[3]"/>
+        </Collection>
+        <StaticText name="Поле формы Наименование" locator="//div[@id='editModal']//div[@class='modal-header']/h5"/>
+        <StaticText locator="//div[@id='editModal']" name="Форма добавления"/>
+        <StaticText name="Поле формы Тип"
+                    locator="//div[@id='editModal']//div[@class='modal-body']//div/select[@id='type']"/>
+        <StaticText name="Чек-бокс Экзотический"
+                    locator="//div[@id='editModal']//div[@class='modal-body']//div/input[@id='exotic']"/>
+        <Button name="Сохранить" locator="//div[@id='editModal']//div[@class='modal-footer']/button[@id='save']"/>
+    </Page>
+</Pages>

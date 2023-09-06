@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DbGears xmlns="http://chameleon.ibs-qa.ru/schema/db">
+    <Connection name="H2" driver="org.h2.Driver"
+                url="jdbc:h2:tcp://localhost:9092/mem:testdb;user=#{user};password=#{password}" autoCommit="true">
+        <Params>
+            <FieldString name="User" locator="user"/>
+            <FieldString name="Password" locator="pass"/>
+        </Params>
+    </Connection>
+    <Query name="Вывести все продукты" statement="select * from FOOD order by food_id"/>
+    <Query name="Вставить продукт"
+           statement="insert into FOOD(FOOD_NAME,FOOD_TYPE,FOOD_EXOTIC) values (?,?,?)">
+        <Params>
+            <FieldString name="Наименование" locator="FOOD_NAME"/>
+            <FieldString name="Тип" locator="FOOD_TYPE"/>
+            <FieldString name="Экзотический" locator="FOOD_EXOTIC"/>
+        </Params>
+    </Query>
+    <Query name="Удалить продукт"
+           statement="delete from FOOD where FOOD_ID = (select max(FOOD_ID) from FOOD where FOOD_NAME=? and FOOD_TYPE=? and FOOD_EXOTIC =?)">
+        <Params>
+            <FieldString name="Наименование" locator="FOOD_NAME"/>
+            <FieldString name="Тип" locator="FOOD_TYPE"/>
+            <FieldString name="Экзотический" locator="FOOD_EXOTIC"/>
+        </Params>
+    </Query>
+    <Query name="Вывести вставленный продукт"
+           statement="select * from FOOD where FOOD_ID = (select max(FOOD_ID) from FOOD where FOOD_NAME=? and FOOD_TYPE=? and FOOD_EXOTIC =?)">
+        <Params>
+            <FieldString name="Наименование" locator="FOOD_NAME"/>
+            <FieldString name="Тип" locator="FOOD_TYPE"/>
+            <FieldString name="Экзотический" locator="FOOD_EXOTIC"/>
+        </Params>
+    </Query>
+</DbGears>
