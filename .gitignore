@@ -11,6 +11,8 @@ target/
 *.iws
 *.iml
 *.ipr
+.idea
+.js
 
 ### Eclipse ###
 .apt_generated
@@ -36,3 +38,11 @@ build/
 
 ### Mac OS ###
 .DS_Store
+
+# Package Files #
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.rar
